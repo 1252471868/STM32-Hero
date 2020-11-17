@@ -140,9 +140,23 @@ static void serial_thread_entry(void *parameter)
             rx_length = rt_device_read(msg.dev, 0, rx_buffer, msg.size);
 
 			RemoteDataProcess(rx_buffer,&RC_Ctrl_Data);
-			yawset = (RC_Ctrl_Data.Remote_Data.ch0 - 364) * 8192 / 660;
-			pitchset = (RC_Ctrl_Data.Remote_Data.ch1 - 1024) * 170 / 660 + 1330;
-			gimbal_absangle_set(yawset, pitchset);
+			if(RC_Ctrl_Data.Remote_Data.s2!=1)
+			{
+				yawset = (RC_Ctrl_Data.Remote_Data.ch0 - 364) * 8192 / 660;
+				pitchset = (RC_Ctrl_Data.Remote_Data.ch1 - 1024) * (PITCH_ZERO_ANGLE-PITCH_MIN_ANGLE) / 660 +PITCH_ZERO_ANGLE;
+				if(pitchset>PITCH_MAX_ANGLE)
+					pitchset = PITCH_MAX_ANGLE;
+				//rt_kprintf("s1: %d x: %d y: %d z:%d", RC_Ctrl_Data.Remote_Data.s1,RC_Ctrl_Data.Mouse_Data.x_speed, RC_Ctrl_Data.Mouse_Data.y_speed, RC_Ctrl_Data.Mouse_Data.z_speed);
+				gimbal_absangle_set(yawset, pitchset);
+			}
+			if(RC_Ctrl_Data.Remote_Data.s2==1)
+			{
+				yawset = (RC_Ctrl_Data.Mouse_Data.x_speed) * 8192 / 32768;
+				pitchset = (RC_Ctrl_Data.Mouse_Data.y_speed) * 8192 / 32768;
+				// rt_kprintf("x: %d y: %d z:%d\n", RC_Ctrl_Data.Mouse_Data.x_speed, RC_Ctrl_Data.Mouse_Data.y_speed, RC_Ctrl_Data.Mouse_Data.z_speed);
+				gimbal_addangle_set(yawset, pitchset);
+			}
+
 		}
     }
 }

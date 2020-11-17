@@ -159,7 +159,7 @@ int gimbal_init(void)
 	m_pitch.setang = 0;//初始化默认角度
 
 	//初始化PID
-	pid_init(&m_yaw.palpid,10,0.1,0,1000,30000,-30000);
+	pid_init(&m_yaw.palpid,20,0,1,1000,30000,-30000);
 	pid_init(&m_pitch.palpid,10,0.1,0,1000,30000,-30000);
 
 	// pid_init(&m_yaw.angpid_gyro,0.5,0,0,3,20000,-20000);
@@ -245,9 +245,9 @@ int refresh_gimbal_motor_data(struct rt_can_msg* message)
 			{
 				m_yaw.motordata.angle = m_yaw.motordata.angle - YAW_ZERO_ANGLE;
 			}
-			rt_kprintf("ID:%x Speed: %d Angle: %d  angset: %d angout: %d palset: %d palout: %d ", m_yaw.motorID, m_yaw.motordata.speed,
-					   m_yaw.motordata.angle, m_yaw.angpid_dji.set, m_yaw.angpid_dji.out,m_yaw.palpid.set, m_yaw.palpid.out);
-			rt_kprintf("\n");
+			// rt_kprintf("ID:%x Speed: %d Angle: %d  angset: %d angout: %d palset: %d palout: %d ", m_yaw.motorID, m_yaw.motordata.speed,
+			// 		   m_yaw.motordata.angle, m_yaw.angpid_dji.set, m_yaw.angpid_dji.out,m_yaw.palpid.set, m_yaw.palpid.out);
+			// rt_kprintf("\n");
 			return 1;
 
 		case PITCH_ID:

@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F427xx, USE_HAL_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.;..\..\..\include;applications;.;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\include;..\..\..\components\drivers\hwcrypto;.;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\common;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>.;..\..\..\include;applications;.;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;packages\SystemView-latest;packages\SystemView-latest\SystemView_Src\Config;packages\SystemView-latest;packages\SystemView-latest\SystemView_Src\SEGGER;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\include;..\..\..\components\drivers\hwcrypto;.;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\common;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -556,6 +556,36 @@
               <FileName>drv_common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drv_common.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>trace</GroupName>
+          <Files>
+            <File>
+              <FileName>SEGGER_RTT_Device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\Config\SEGGER_RTT_Device.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_SYSVIEW_Config_RTThread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\Config\SEGGER_SYSVIEW_Config_RTThread.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_SYSVIEW_RTThread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\Config\SEGGER_SYSVIEW_RTThread.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_RTT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\SEGGER\SEGGER_RTT.c</FilePath>
+            </File>
+            <File>
+              <FileName>SEGGER_SYSVIEW.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SystemView-latest\SystemView_Src\SEGGER\SEGGER_SYSVIEW.c</FilePath>
             </File>
           </Files>
         </Group>

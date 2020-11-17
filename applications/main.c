@@ -29,10 +29,7 @@ int main(void)
     gimbal_init();
     remote_uart_init();
 	can1_init();
-
-
-
-
+    // can2_init();
 
 
 
